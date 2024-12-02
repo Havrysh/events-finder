@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "@/Components/Layout/Content/Logo";
+import Logo from "@/components/Layout/Content/Logo";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";

@@ -1,10 +1,10 @@
 import React from "react";
-import { Metadata } from "next";
+// import { Metadata } from "next";
 import Image from "next/image";
 
-import H1 from "@/Components/Shared/H1";
+import H1 from "@/components/Shared/H1";
 
-import { capitalizeFirstLetter } from "@/lib/utils";
+// import { capitalizeFirstLetter } from "@/lib/utils";
 import { getEvent } from "@/lib/queries";
 
 type Props = {
@@ -13,19 +13,19 @@ type Props = {
   };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-
-  const event = await getEvent(slug);
-
-  return {
-    title: capitalizeFirstLetter(event.name),
-    description: `Find the best events in ${slug}`,
-  };
-}
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   const { slug } = await params;
+//
+//   const event = await getEvent(slug);
+//
+//   return {
+//     title: capitalizeFirstLetter(event.name),
+//     description: `Find the best events in ${slug}`,
+//   };
+// }
 
 export default async function EventPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug } = params;
 
   const event = await getEvent(slug);
 

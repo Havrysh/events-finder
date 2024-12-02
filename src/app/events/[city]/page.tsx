@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import { Metadata } from "next";
 import { z } from "zod";
 
-import H1 from "@/Components/Shared/H1";
-import EventsList from "@/Components/Events/EventsList";
+import H1 from "@/components/Shared/H1";
+import EventsList from "@/components/Events/EventsList";
 import Loading from "@/app/events/[city]/loading";
 
 import { capitalizeFirstLetter } from "@/lib/utils";

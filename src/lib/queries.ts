@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { capitalizeFirstLetter } from "@/lib/utils";
 import prisma from "@/lib/db";
 
-export async function getEvents(city: string, page = 1) {
+export async function getEvents(city: string, page = 1, paginate = true) {
   const events = await prisma.mEvent.findMany({
     where: {
       city: city === "all" ? undefined : capitalizeFirstLetter(city),
@@ -11,8 +11,10 @@ export async function getEvents(city: string, page = 1) {
     orderBy: {
       date: "asc",
     },
-    take: 6,
-    skip: 6 * (page - 1),
+    ...(paginate && {
+      take: 6,
+      skip: 6 * (page - 1),
+    }),
   });
 
   const totalEvents = await prisma.mEvent.count({

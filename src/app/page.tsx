@@ -1,8 +1,11 @@
 import Link from "next/link";
-import SearchForm from "@/Components/SearchForm";
-import H1 from "@/Components/Shared/H1";
+import SearchForm from "@/components/SearchForm";
+import H1 from "@/components/Shared/H1";
+import { getEvents } from "@/lib/queries";
 
-export default function Home() {
+export default async function Home() {
+  const { events } = await getEvents("all", 1, false);
+
   return (
     <main className="flex flex-col items-center pt-36 px-3">
       <H1>Find Events Around You</H1>
@@ -12,7 +15,7 @@ export default function Home() {
         events around you
       </p>
 
-      <SearchForm />
+      <SearchForm events={events} />
 
       <section className="mt-4 flex gap-x-4 text-sm text-white/50">
         <p>Popular:</p>

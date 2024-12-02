@@ -1,6 +1,6 @@
-import EventCard from "@/Components/Events/EventCard";
+import EventCard from "@/components/Events/EventCard";
 
-import Pagination from "@/Components/Pagination";
+import Pagination from "@/components/Pagination";
 import { getEvents } from "@/lib/queries";
 
 type EventsListProps = {
