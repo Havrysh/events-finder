@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { MEvent } from "@prisma/client";
 
 import { useDebounce } from "@/hooks/debounce";
+import { capitalizeFirstLetter } from "@/lib/utils";
 
 export default function SearchForm({ events }: { events: MEvent[] }) {
   const router = useRouter();
@@ -45,7 +46,10 @@ export default function SearchForm({ events }: { events: MEvent[] }) {
               className="py-2 px-4 pb-2 hover:bg-gray-500 hover:text-white transition-colors cursor-pointer"
               onClick={() => handleClick(event.slug)}
             >
-              {event.name}
+              {event.name} in{" "}
+              <span className="text-accent/50">
+                {capitalizeFirstLetter(event.city)}
+              </span>
             </li>
           ))}
         </ul>
